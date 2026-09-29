@@ -1,0 +1,40 @@
+CREATE DATABASE MST1;
+USE MST1;
+
+CREATE TABLE employee(
+	employee_ID INT PRIMARY KEY,
+    name VARCHAR(50)  NOT NULL,
+    email VARCHAR(50) UNIQUE,
+    age INT CHECK (age> 18),
+    department VARCHAR(10),
+    salary INT DEFAULT(50000)
+    );
+    
+INSERT INTO employee(employee_ID,name,email,age,department,salary)
+VALUES
+	(101,'Rohan','rohan@mail.in',25,'IT',65000),
+    (102,'Shyam','shyam@mail.in',19,'SALES',58000),
+    (103,'Priya','priya@mail.in',23,'HR',60000),
+    (104,'Aman','aman@mail.in',31,'HR',70000),
+    (105,'Neha','neha@mail.in',19,'IT',45000);
+    
+    
+SELECT * FROM employee;
+
+SELECT * FROM employee WHERE salary > 50000;
+
+UPDATE employee SET salary = salary + 5000 
+WHERE DEPARTMENT = "HR";
+
+DELETE FROM employee 
+WHERE salary < 50000;
+
+ALTER TABLE employee 
+ADD COLUMN gender VARCHAR(10);
+
+
+TRUNCATE employee;
+
+    
+    
+    
